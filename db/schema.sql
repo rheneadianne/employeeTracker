@@ -7,24 +7,24 @@ DROP TABLE IF EXISTS roles;
 DROP TABLE IF EXISTS departments;
 
 CREATE TABLE employees (
-    id INT NOT NULL AUTO_INCREMENT,
+    employee_id INT NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(30),
     last_name VARCHAR(30),
     role_id INT,
     manager_id INT,
-    PRIMARY (id)
-)
+    PRIMARY KEY (employee_id)
+);
 
 CREATE TABLE roles (
-    id INT NOT NULL AUTO_INCREMENT,
-    job_title VARCHAR(30) NOT NULL,
-    salary DECIMAL(11,2),
+    job_id INT NOT NULL AUTO_INCREMENT,
+    job_title VARCHAR(30),
+    salary DECIMAL(10,2),
     department_id INT,
-    PRIMARY KEY (id)
-)
+    PRIMARY KEY (job_id)
+);
 
 CREATE TABLE departments (
-    id INT NOT NULL AUTO_INCREMENT,
+    dep_id INT NOT NULL AUTO_INCREMENT,
     department_name VARCHAR(30),
-    PRIMARY KEY (id)
-)
+    PRIMARY KEY (dep_id)
+);

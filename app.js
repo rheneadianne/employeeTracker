@@ -73,7 +73,8 @@ const viewMenu = () => {
                 "View all departments",
                 "View employees by role",
                 "View employees by department",
-                "View employees by manager"
+                "View employees by manager",
+                "Back"
             ]
         }
     ])
@@ -90,7 +91,9 @@ const viewMenu = () => {
             viewByRoles():
         subViewMenu === "View employees by department"?
             viewByDepartment():
-        viewByManager()
+        subViewMenu === "View employees by manager"?
+            viewByManager():
+        mainMenu()
     })
 }
 
@@ -105,6 +108,7 @@ const updateMenu = () => {
                 "Update role",
                 "Update department",
                 "Update manager",
+                "Back"
             ]
         }
     ])
@@ -117,7 +121,9 @@ const updateMenu = () => {
             updateRoles():
         subUpdateMenu === "Update department"?
             updateDepartments():
-        updateManager()
+        subUpdateMenu === "Update manager"?
+            updateManager():
+        mainMenu()
     })
 }
 
@@ -132,6 +138,7 @@ const addMenu = () => {
                 "Add role",
                 "Add department",
                 "Add manager",
+                "Back"
             ]
         }
     ])
@@ -144,7 +151,9 @@ const addMenu = () => {
             addRoles():
         subAddMenu === "Add department"?
             addDepartments():
-        addManager()
+        subAddMenu === "Add manager"?
+            addManager():
+        mainMenu()
     })
 }
 
@@ -159,6 +168,7 @@ const deleteMenu = () => {
                 "Delete role",
                 "Delete department",
                 "Delete manager",
+                "Back"
             ]
         }
     ])
@@ -171,6 +181,8 @@ const deleteMenu = () => {
             deleteRoles():
         subDeleteMenu === "Delete employee"?
             deleteDepartments():
-        deleteManager()
+        subDeleteMenu === "Delete manager"?
+            deleteManager():
+        mainMenu()
     })
 }

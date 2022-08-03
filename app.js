@@ -19,10 +19,12 @@
 const mysql = require('mysql2');
 const inquirer = require('inquirer')
 const cTable = require('console.table');
+require('dotenv').config();
 
 const connection = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root', //PLEASE INSERT YOUR USER NAME
+    host: process.env.DB_HOST,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
     database: 'employee_db'
   });
 

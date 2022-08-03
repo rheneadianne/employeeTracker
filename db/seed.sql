@@ -3,7 +3,7 @@ VALUES
     ('Jinbe', 'Si I', 1, 1),
     ('Roronoa', 'Zoro', 2, 1),
     ('Tony Tony', 'Chopper', 3, 1),
-    ('Nico', 'Robin', 4, 1),
+    ('Nico', 'Robin', 4, 1)
     ('Cutty', 'Flam', 5, 1),
     ('Cora', 'Donquixote', 1, 2),
     ('Bee', 'Po', 2, 2),

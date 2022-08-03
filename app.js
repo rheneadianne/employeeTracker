@@ -25,6 +25,152 @@ const connection = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
+    port: '3306',
     database: 'employee_db'
   });
 
+connection.connect(() => mainMenu())
+
+const mainMenu = () => {
+    return inquirer
+    .prompt([
+        {
+            type: "list",
+            name: "mainMenu",
+            choices: [
+                "View",
+                "Update",
+                "Add",
+                "Delete",
+                "Quit"
+            ]
+        }
+    ])
+    .then ( response => {
+        let subMenu = response.mainMenu
+
+        subMenu === "View"?
+            viewMenu():
+        subMenu === "Update"?
+            updateMenu():
+        subMenu === "Add"?
+            addMenu():
+        subMenu === "Delete"?
+            deleteMenu():
+        db.end()
+    })
+}
+
+const viewMenu = () => {
+    return inquirer
+    .prompt ([
+        {
+            type: "list",
+            name: "viewMenu",
+            choices: [
+                "View all employees",
+                "View all roles",
+                "View all departments",
+                "View employees by role",
+                "View employees by department",
+                "View employees by manager"
+            ]
+        }
+    ])
+    .then(response => {
+        let subViewMenu = response.viewMenu
+
+        subViewMenu === "View all employees"?
+            viewAll():
+        subViewMenu === "View all roles"?
+            viewRoles():
+        subViewMenu === "View all departments"?
+            viewDepartments():
+        subViewMenu === "View employees by role"?
+            viewByRoles():
+        subViewMenu === "View employees by department"?
+            viewByDepartment():
+        viewByManager()
+    })
+}
+
+const updateMenu = () => {
+    return inquirer
+    .prompt ([
+        {
+            type: "list",
+            name: "updateMenu",
+            choices: [
+                "Update employee",
+                "Update role",
+                "Update department",
+                "Update manager",
+            ]
+        }
+    ])
+    .then(response => {
+        let subUpdateMenu = response.updateMenu
+
+        subUpdateMenu === "Update employee"?
+            updateAll():
+        subUpdateMenu === "Update role"?
+            updateRoles():
+        subUpdateMenu === "Update department"?
+            updateDepartments():
+        updateManager()
+    })
+}
+
+const addMenu = () => {
+    return inquirer
+    .prompt ([
+        {
+            type: "list",
+            name: "addMenu",
+            choices: [
+                "Add employee",
+                "Add role",
+                "Add department",
+                "Add manager",
+            ]
+        }
+    ])
+    .then(response => {
+        let subAddMenu = response.addMenu
+
+        subAddMenu === "Add employee"?
+            addAll():
+        subAddMenu === "Add role"?
+            addRoles():
+        subAddMenu === "Add department"?
+            addDepartments():
+        addManager()
+    })
+}
+
+const deleteMenu = () => {
+    return inquirer
+    .prompt ([
+        {
+            type: "list",
+            name: "addMenu",
+            choices: [
+                "Delete employee",
+                "Delete role",
+                "Delete department",
+                "Delete manager",
+            ]
+        }
+    ])
+    .then(response => {
+        let subDeleteMenu = response.addMenu
+
+        subDeleteMenu === "Delete employee"?
+            deleteAll():
+        subDeleteMenu === "Delete employee"?
+            deleteRoles():
+        subDeleteMenu === "Delete employee"?
+            deleteDepartments():
+        deleteManager()
+    })
+}
